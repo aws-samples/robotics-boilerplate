@@ -28,7 +28,9 @@ Instance creation can take up to 30 minutes to complete.
 
 **STEP 4**: Open Desktop GUI
 1. Go to the Preview menu and select "Preview Running Application". This will open a new tab in Cloud9, which will be blank.
-2. Click the link on the right hand side of the URL field next to the word "Browser", then "Pop Out Into New Window". The GUI will be visible in the new browser tab.
+2. Click the link on the right hand side of the URL field next to the word "Browser", then "Pop Out Into New Window".
+
+The GUI will be visible in the new browser tab.
 
 ## Support
 * Nigel Gardiner: ngl@amazon.com
