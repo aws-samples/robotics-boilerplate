@@ -4,33 +4,31 @@ This project provides an AWS CloudFormation teomplate to sping up a preconfigure
 
 ## Installation
 
-To create an environment, use Cloudformation.
+**STEP 1**: In the AWS Console for CloudFormation:
+1. Click Create Stack
+2. Select "Upload a Template file"
+3. Click "Choose File" and upload c9-ros-nice-cfn.yaml
+4. Click Next
 
-1. In the AWS Console for Cloudformation:
-1.1 Click Create Stack
-1.2 Select "Upload a Template file"
-1.3 Click "Choose File" and upload c9-ros-nice-cfn.yaml
-1.4 Click Next
-
-2. Create a CloudFormation stack
-2.1Enter a stack name
-2.2 Choose an instance type
-2.3 Enter your Cloud9 Access Role ARN
-2.4 Select a ROS Version to install
-2.5 Click Next, then Next again
-2.6 Check the box for "I acknowledge that AWS CloudFormation might create IAM resources with custom names."
-2.7 Click Create Stack
+**STEP 2**: Create a CloudFormation stack
+1. Enter a stack name
+2. Choose an instance type
+3. Enter your Cloud9 Access Role ARN
+4. Select a ROS Version to install
+5. Click Next, then Next again
+6. Check the box for "I acknowledge that AWS CloudFormation might create IAM resources with custom names."
+7. Click Create Stack
 
 Instance creation can take up to 30 minutes to complete.
 
-3. Open Cloud9 environment
-3.1 Once instance is created, go to Cloud9
-3.2 you should see an environment named "RobotWorkshop-{stack name}"
-3.3 Click "Open IDE"
+**STEP 3**: Open Cloud9 environment
+1. Once instance is created, go to Cloud9
+2. you should see an environment named "RobotWorkshop-{stack name}"
+3. Click "Open IDE"
 
-4. Open Desktop GUI
-4.1 Go to the Preview menu and select "Preview Running Application". This will open a new tab in Cloud9, which will be blank.
-4.2 Click the link on the right hand side of the URL field next to the word "Browser", then "Pop Out Into New Window". The GUI will be visible in the new browser tab.
+**STEP 4**: Open Desktop GUI
+1. Go to the Preview menu and select "Preview Running Application". This will open a new tab in Cloud9, which will be blank.
+2. Click the link on the right hand side of the URL field next to the word "Browser", then "Pop Out Into New Window". The GUI will be visible in the new browser tab.
 
 ## Support
 * Nigel Gardiner: ngl@amazon.com
