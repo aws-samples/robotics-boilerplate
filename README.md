@@ -33,8 +33,8 @@ Instance creation can take up to 30 minutes to complete.
 4.2 Click the link on the right hand side of the URL field next to the word "Browser", then "Pop Out Into New Window". The GUI will be visible in the new browser tab.
 
 ## Support
-Nigel Gardiner: ngl@amazon.com
-Adi Singh: adsnghw@amazon.com
+* Nigel Gardiner: ngl@amazon.com
+* Adi Singh: adsnghw@amazon.com
 
 ## Roadmap
 Currently only **us-east-1** and **us-west-2** are supported regions. Contact the authors to get more regions added.
@@ -43,4 +43,4 @@ Currently only **us-east-1** and **us-west-2** are supported regions. Contact th
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
-This library is licensed under the MIT-0 License. See the LICENSE file.
+This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
