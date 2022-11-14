@@ -1,6 +1,6 @@
 # Robotics Boilerplate
 
-This project provides an AWS CloudFormation teomplate to sping up a preconfigured cloud-based desktop environment for Robotics development. It creates an EC2 instance using Ubuntu, with common robotics software such as ROS and Gazebo installed, and NICE DCV, so the Ubuntu Desktop can be accessed and the graphical interface to the simulations can be accessed.
+This project provides an AWS CloudFormation template to spin up a preconfigured cloud-based desktop environment for Robotics development. It creates an EC2 instance using Ubuntu, with common robotics software such as ROS and Gazebo installed, and NICE DCV, so the Ubuntu Desktop can be accessed and the graphical interface to the simulations can be accessed.
 
 ## Installation
 
