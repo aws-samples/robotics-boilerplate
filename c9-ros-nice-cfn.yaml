@@ -33,7 +33,7 @@ Parameters:
       - Carla
       - None
   Cloud9AccessRoleName:
-    Description: Cloud9 Role ARN to permit access to C9 environment
+    Description: Cloud9 User ARN to permit access to C9 environment
     Type: String
     Default: default
 Mappings:
@@ -535,14 +535,14 @@ Resources:
                           'Accept-Encoding': 'identity',
                           'User-Agent': 'custom',
                           'Authorization':authorization_header
-                        }
+                      }
 
               if (creds.token) is not None:
                   headers['x-amz-security-token'] = creds.token
 
               return requests.post(endpoint, data=request_parameters, headers=headers)
 
-          def get_c9_pub_key(pub_key):
+          def set_c9_pub_key(pub_key):
               file1 = open("/home/ubuntu/.ssh/authorized_keys", "a")  # append mode
               file1.write(pub_key)
               file1.close()
@@ -566,6 +566,12 @@ Resources:
               instance_details = json.loads(r.text)
               region = instance_details['region']
               account_id = instance_details['accountId']
+              print("Account ID: "+account_id)
+              print("Region: "+region)
+
+              r = requests.get('http://169.254.169.254/latest/meta-data/iam/security-credentials')
+              assumedRole = r.text
+              print("Assumed role: "+assumedRole)
 
               r = requests.get('http://169.254.169.254/latest/meta-data/public-hostname')
               hostname = r.text
@@ -576,14 +582,10 @@ Resources:
 
               amz_target = 'AWSCloud9WorkspaceManagementService.GetUserPublicKey'
               request_parameters =  '{}'
-              if("default" != os.getenv('ROLE_ARN', 'default')):
-                request_parameters = '{"userArn": "'+os.getenv('ROLE_ARN')+'"}'
-              else:
-                request_parameters = '{"userArn": "arn:aws:sts::'+account_id+':assumed-role/TeamRole/MasterKey"}'
-
+              request_parameters = '{"roleArn": "arn:aws:iam::'+account_id+':role/'+ assumedRole+'"}'
               r = sigv4_request(amz_target, request_parameters, region, credentials)
               response = json.loads(r.text)
-              get_c9_pub_key(response['publicKey'])
+              set_c9_pub_key(response['publicKey'])
               print("Public key written.")
 
               time.sleep(5)
@@ -592,42 +594,23 @@ Resources:
               request_parameters =  '{'
               request_parameters +=  '"name":"'+os.getenv('ENVIRONMENT_NAME', default = 'cloud-dev-'+uuid.uuid4().hex)+'",'
               request_parameters +=  '"host":"'+hostname+'",'
-              if("default" == os.getenv('ROLE_ARN', 'default')):
-                request_parameters +=  '"ownerArn":"arn:aws:sts::'+account_id+':assumed-role/TeamRole/MasterKey",'
-              else:
-                request_parameters +=  '"ownerArn":"'+os.getenv('ROLE_ARN', default = 'arn:aws:sts::'+account_id+':assumed-role/TeamRole/MasterKey')+'",'
+              request_parameters += '"roleArn": "arn:aws:iam::'+account_id+':role/'+assumedRole+'",'
               request_parameters +=  '"port":22,'
               request_parameters +=  '"loginName":"'+os.getenv('LOGIN_NAME', default = 'ubuntu')+'",'
               request_parameters +=  '"environmentPath":"'+os.getenv('ENVIRONMENT_PATH', default = '~/environment')+'"'
               request_parameters +=  '}'
-              print (request_parameters)
 
               r = sigv4_request(amz_target, request_parameters, region, credentials)
-              print(r.text)
               environment = json.loads(r.text)["environmentId"]
+              print("Enviroment: "+environment)
 
               amz_target = 'AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership'
               request_parameters = '{'
               request_parameters +=  '"environmentId":"'+environment+'",'
-              if("default" == os.getenv('ROLE_ARN', 'default')):
-                request_parameters +=  '"userArn":"arn:aws:sts::'+account_id+':assumed-role/TeamRole/MasterKey",'
-              else:
-                request_parameters +=  '"userArn":"'+os.getenv('ROLE_ARN', default = 'arn:aws:sts::'+account_id+':assumed-role/TeamRole/MasterKey')+'",'
+              request_parameters +=  '"userArn":"'+os.getenv('ROLE_ARN', 'default')+'",'
               request_parameters +=  '"permissions":"read-write"'
               request_parameters += '}'
               print (request_parameters)
-
-              r = sigv4_request(amz_target, request_parameters, region, credentials)
-              print(r.text)
-
-              if("default" == os.getenv('ROLE_ARN', 'default')):
-                  amz_target = 'AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership'
-                  request_parameters = '{'
-                  request_parameters +=  '"environmentId":"'+environment+'",'
-                  request_parameters +=  '"userArn":"arn:aws:sts::'+account_id+':assumed-role/OpsRole/MasterKey",'
-                  request_parameters +=  '"permissions":"read-write"'
-                  request_parameters += '}'
-                  print (request_parameters)
 
               r = sigv4_request(amz_target, request_parameters, region, credentials)
               print(r.text)
