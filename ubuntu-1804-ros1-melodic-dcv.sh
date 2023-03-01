@@ -1,8 +1,5 @@
 #!/bin/bash -v
 
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: MIT-0
-
 # Installs NICE DCV, ROS Melodic, Gazebo and registers to Cloud9
 
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
