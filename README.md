@@ -15,8 +15,8 @@ This project provides an AWS CloudFormation template to spin up a preconfigured 
 2. Choose an instance type
 3. Enter your Cloud9 user ARN.\
 This user will get access to the Cloud9 enviroment. For example:
-    - Federated user: arn:aws:sts::123456789012:assumed-role/RoleToBeAssumed/b@example.com 
-    - IAM user:       arn:aws:iam::123456789012:user/JohnDoe
+    - Federated user: arn:aws:iam::{ACCOUNT_ID}:assumed-role/{ROLE_NAME}/{ALIAS}
+    - IAM user:       arn:aws:iam::{ACCOUNT_ID}:user/{USER_NAME}
 4. Select a ROS Version to install
 5. Click Next, then Next again
 6. Check the box for "I acknowledge that AWS CloudFormation might create IAM resources with custom names."
