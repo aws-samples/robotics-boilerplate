@@ -546,7 +546,7 @@ Resources:
                 print(description_env)
                 target = ""
                 for env in description_env["environments"]:
-                  if env["type"] == "ssh" and env["name"] == "RobotWorkshop-${AWS::StackName}":
+                  if env["type"] == "ssh" and env["name"] == "VirtualDesktop-${AWS::StackName}":
                     target = env["id"]
                     break
 

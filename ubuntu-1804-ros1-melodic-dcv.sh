@@ -342,7 +342,7 @@ usermod -aG docker ubuntu
 
 # Register to Cloud9
 sudo su -l ubuntu -c 'echo "{}" > /home/ubuntu/environment/.c9/project.settings'
-sudo su -l ubuntu -c "ROLE_ARN=${Cloud9AccessRoleName} ENVIRONMENT_NAME=RobotWorkshop-${AWS::StackName} python3 registercloud9.py"
+sudo su -l ubuntu -c "ROLE_ARN=${Cloud9AccessRoleName} ENVIRONMENT_NAME=VirtualDesktop-${AWS::StackName} python3 registercloud9.py"
 rm /home/ubuntu/registercloud9.py
 
 # Configure DCV Session
