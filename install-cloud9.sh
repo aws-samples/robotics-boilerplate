@@ -206,4 +206,4 @@ chown ubuntu:ubuntu -R ./environment/.c9
 
 # Register to Cloud9
 sudo su -l ubuntu -c 'echo "{}" > /home/ubuntu/environment/.c9/project.settings'
-sudo su -l ubuntu -c "ROLE_ARN=${ROLENAME} ENVIRONMENT_NAME=RobotWorkshop-${STACKNAME} python3 registercloud9.py"
+sudo su -l ubuntu -c "ROLE_ARN=${ROLENAME} ENVIRONMENT_NAME=VirtualDesktop-${STACKNAME} python3 registercloud9.py"

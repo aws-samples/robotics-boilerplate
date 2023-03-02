@@ -26,7 +26,7 @@ Instance creation can take up to 30 minutes to complete.
 
 **STEP 3**: Open Cloud9 environment
 1. Once instance is created, go to Cloud9
-2. you should see an environment named "RobotWorkshop-{stack name}"
+2. you should see an environment named "VirtualDesktop-{stack name}"
 3. Click "Open IDE"
 
 **STEP 4**: Open Desktop GUI
