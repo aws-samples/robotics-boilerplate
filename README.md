@@ -36,8 +36,11 @@ Instance creation can take up to 30 minutes to complete.
 The GUI will be visible in the new browser tab.
 
 ## Support
-* Nigel Gardiner: -
-* Adi Singh: @adi3
+Open an [issue](https://github.com/aws-samples/robotics-boilerplate/issues) and the contributing team will be notified.
+
+## Authors
+* Nigel Gardiner, AWS
+* Adi Singh, AWS
 
 ## Roadmap
 Currently only **us-east-1** and **us-west-2** are supported regions. Contact the authors to get more regions added.
