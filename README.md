@@ -36,8 +36,8 @@ Instance creation can take up to 30 minutes to complete.
 The GUI will be visible in the new browser tab.
 
 ## Support
-* Nigel Gardiner: ngl@amazon.com
-* Adi Singh: adsnghw@amazon.com
+* Nigel Gardiner: -
+* Adi Singh: @adi3
 
 ## Roadmap
 Currently only **us-east-1** and **us-west-2** are supported regions. Contact the authors to get more regions added.
