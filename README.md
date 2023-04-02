@@ -36,7 +36,7 @@ Instance creation can take up to 30 minutes to complete.
 The GUI will be visible in the new browser tab.
 
 ## Support
-Open an [issue](https://github.com/aws-samples/robotics-boilerplate/issues) and the contributing team will be notified.
+Check if the problem you are facing has already been solved in another [issue](https://github.com/aws-samples/robotics-boilerplate/issues). If this is not the case, open a new issue describing the problem in as much detail as possible. An error or system log would be helpgul. The contributing team will then be notified and will communicate with you on the issue thread.
 
 ## Authors
 * Nigel Gardiner, AWS
