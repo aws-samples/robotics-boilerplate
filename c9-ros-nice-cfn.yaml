@@ -25,8 +25,9 @@ Parameters:
       - ROS1Melodic
       - NoROSUbuntu1804
       - ROS1Noetic
-      - NoROSUbuntu2004
       - ROS2Foxy
+      - NoROSUbuntu2004
+      - ROS2Humble
       - NoROSUbuntu2204
   Simulator:
     Description: Simulator to install
@@ -48,6 +49,8 @@ Mappings:
       Ubuntu: Ubuntu2004
     ROS2Foxy:
       Ubuntu: Ubuntu2004
+    ROS2Humble:
+      Ubuntu: Ubuntu2204
     NoROSUbuntu1804:
       Ubuntu: Ubuntu1804
     NoROSUbuntu2004:
@@ -89,14 +92,14 @@ Mappings:
       Ubuntu1804GPU: ami-003566b22128092cd # isaacsim: ami-08084538a6dec4734
       Ubuntu2004CPU: ami-08d4ac5b634553e16 # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
       Ubuntu2004GPU: ami-08cb7e65c4e13f22d # Deep Learning AMI GPU PyTorch 1.12.0 (Ubuntu 20.04) 20220824
-      Ubuntu2204CPU: ami-099bc67a2500003c1 # Cloud9Ubuntu-2022-04-28T13-38
+      Ubuntu2204CPU: ami-007855ac798b5175e # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
       #Ubuntu2204GPU: TODO # Deep Learning AMI GPU PyTorch ? (Ubuntu 22.04)
     us-west-2:
       Ubuntu1804CPU: ami-0cfa91bdbc3be780c # Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
       Ubuntu1804GPU: ami-0475f1fb0e9b1f73f # isaacsim: ami-08084538a6dec4734
       Ubuntu2004CPU: ami-0ddf424f81ddb0720 # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
       Ubuntu2004GPU: ami-0eaff0d700233c573 # Deep Learning AMI GPU PyTorch 1.12.0 (Ubuntu 20.04) 20220824
-      Ubuntu2204CPU: ami-043211bbba49eb3d6 # Cloud9Ubuntu-2022-04-28T13-38
+      Ubuntu2204CPU: ami-0fcf52bcf5db7b003 # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
       #Ubuntu2204GPU: TODO # Deep Learning AMI GPU PyTorch ? (Ubuntu 22.04)
     ap-northeast-1:
       Ubuntu1804CPU: ami-021117b0e6a499966 # bionic 18.04 LTS amd64 hvm:ebs-ssd 20221201
@@ -131,7 +134,7 @@ Mappings:
       Ubuntu1804GPU: ami-0cadf512ea43b3aef # IsaacSim-Ubuntu-18.04-GPU-2022-05-31
       Ubuntu2004CPU: ami-0ab9357b9799530ef # focal 20.04 LTS amd64 hvm:ebs-ssd 20221206   hvm
       Ubuntu2004GPU: ami-03b026e61b4a8200d # Deep Learning AMI GPU PyTorch 1.13.1 (Ubuntu 20.04) 20230215
-      Ubuntu2204CPU: ami-06fa03ed767ea76ed # Cloud9Ubuntu-2022-04-28T13-38
+      Ubuntu2204CPU: ami-0310483fb2b488153 # Ubuntu Server 22.04 LTS (HVM), SSD Volume Type
       #Ubuntu2204GPU: TODO # Deep Learning AMI GPU PyTorch ? (Ubuntu 22.04)
     ap-southeast-3:
       Ubuntu1804CPU: ami-02c68bc8e70dcf83f # bionic  18.04 LTS amd64 hvm:ebs-ssd 20221201   hvm

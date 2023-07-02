@@ -18,12 +18,22 @@ sudo su -l ubuntu -c "sudo rosdep init"
 sudo su -l ubuntu -c "rosdep update"
 echo "[[ -e /opt/ros/noetic/setup.bash ]] && source /opt/ros/noetic/setup.bash" >> /home/ubuntu/.bashrc
 elif [ ${ROSVERSION} == "ROS2Foxy" ]; then
-sudo apt update && sudo apt install curl gnupg2 lsb-release
+echo Installing ROS2 Foxy
+sudo apt update && sudo apt install curl gnupg2 lsb-release -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 sudo apt update
 sudo apt install -y ros-foxy-desktop
 echo "[[ -e /opt/ros/foxy/setup.bash ]] && source /opt/ros/foxy/setup.bash" >> /home/ubuntu/.bashrc
+elif [ ${ROSVERSION} == "ROS2Humble" ]; then
+echo Installing ROS2 Humble
+sudo apt update && sudo apt install curl gnupg2 lsb-release -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+sudo apt update
+sudo apt install -y ros-humble-desktop python3-colcon-common-extensions
+echo "[[ -e /opt/ros/humble/setup.bash ]] && source /opt/ros/humble/setup.bash" >> /home/ubuntu/.bashrc
+echo "[[ -e /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash ]] && source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> /home/ubuntu/.bashrc
 else
 echo "No ROS"
 fi
