@@ -3,7 +3,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-# Intended for running in a Cloud9 environment, to install ROS1 Melodic and NICE DCV on Ubuntu 18.04.
+# Intended for running in a Cloud9 environment, to install ROS2 Humble and NICE DCV on Ubuntu 22.04
 
 # log_to_/var/log/user-data.log
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
@@ -18,7 +18,7 @@ apt-get install -y python python-dev python-pip python3 python3-dev python3-pip 
 pip3 install --upgrade pip boto3 botocore requests
 
 
-export ROSVERSION="ROS1Melodic"
+export ROSVERSION="ROS2Humble"
 export SIMULATORS="Gazebo"
 
 ### 1. Resize Cloud9 Volume
